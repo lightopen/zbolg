@@ -1,0 +1,10 @@
+{% extends './base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+<div style="width: 75%; margin: auto; height: 800px;">
+{{ wtf.quick_form(form) }}
+</div>
+{% endblock %}

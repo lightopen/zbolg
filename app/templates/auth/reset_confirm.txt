@@ -1,0 +1,4 @@
+﻿您在Zbolg点击了忘记密码，请点击下面链接重设密码。
+{{url_for('auth.reset_password',  _external=True, username=username, token=token)}}
+如果非您本人请忽略该邮件！
+系统邮件，请勿回复！

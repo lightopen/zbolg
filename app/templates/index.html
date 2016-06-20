@@ -1,0 +1,19 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+    <style type="text/css">
+        #index_main {width: 75%; margin:auto;}
+    </style>
+{% endblock %}
+{% block body %}
+    {% for article in articles %}
+        <div id="index_main">
+        <h1><a href="{{url_for('main.article', article_id=article.id)}}">{{article.title}}</a></h1>
+        <p>{{article.text[:200] + "......"}}<a href="{{url_for('main.article', article_id=article.id)}}">全文</a></p>
+        </div>
+    {% endfor %}
+{% endblock %}
+{% block bottom %}
+<a href="http://www.miitbeian.gov.cn/" target='_blink'>鲁ICP备16021976号</a>
+{% endblock %}

@@ -1,0 +1,4 @@
+你的邮箱刚刚注册了Zbolg，请点击下面的链接确认账户
+{{url_for('auth.confirmation', _external=True, token=token)}}
+如果非您本人请忽略该邮件！
+系统邮件，请勿回复！

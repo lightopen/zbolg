@@ -1,0 +1,25 @@
+﻿{% extends "base.html" %}
+{% block title %}{{user.username}}{% endblock %}
+
+{% block body %}
+<table class="table table-bordered" style="height:400px; width:75%; margin:auto;">
+    <tr>
+        <td colspan="4" align="center"><img src="{{user.photo_url}}" class="img-thumbnail" style="width: 100px; height: 100px;" /></td>
+    </tr>
+    <tr class="active">
+        <td colspan="4" align="center">{{user.username}}</td>
+    </tr>
+    <tr class="success">
+        <td>E-mail:</td>
+        <td>{{user.email}}</td>
+        <td>Sex:</td>
+        <td>{% if user.sex %}男{% else %}女{% endif %}</td>
+    </tr>
+    <tr class="success">
+        <td>Age:</td>
+        <td>{{user.age}}</td>
+        <td>Home:</td>
+        <td>{{user.home}}</td>
+    </tr>
+</table>
+{% endblock %}

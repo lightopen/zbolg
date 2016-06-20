@@ -1,0 +1,67 @@
+﻿{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+    {{article.title}}
+{% endblock %}
+
+{% block head %}
+<style type="text/css">
+pre {
+white-space: pre-wrap; /* css-3 */
+white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+white-space: -pre-wrap; /* Opera 4-6 */
+white-space: -o-pre-wrap; /* Opera 7 */
+word-wrap: break-word; /* Internet Explorer 5.5+ */
+} 
+#anchor {float:right;
+position:fixed;  
+bottom:50px;
+right:90px; 
+}
+</style>
+
+<script>
+window.onload = function(){
+     var topbtn = document.getElementById("retop");
+     topbtn.style.display = "none";
+     window.onscroll =  function(){
+          var top = document.documentElement.scrollTop || document.body.scrollTop;
+          if(top > 0){
+               topbtn.style.display = "";
+          }
+          if(top == 0){
+               topbtn.style.display = "none";
+          }
+      };
+ 
+    topbtn.onclick = function(){
+          scroll(0,0);
+    };
+};
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="jumbotron">
+<div style="width:80%;margin:auto;">
+        <h1>{{article.title}}</h1>
+        <pre>{{article.text}}</pre>
+</div>
+<div id='anchor' >
+<img src="{{url_for('static', filename='top.jpg')}}" style="width:50px; height:50px" id='retop' />
+</div>
+
+<hr width=80% />
+
+<div style="width: 80%; margin: auto">
+<h3>文章评论:</h3>
+<ul class="list-group">
+{% for comment in comments %}
+<li class="list-group-item" style='background-color:#B8B8B8'>{{comment.comment}}<br /><small>日期：{{comment.time_stamp}}</small></li>
+{% endfor %}
+{{ wtf.quick_form(form) }}
+</div>
+
+</div>
+{% endblock %}
